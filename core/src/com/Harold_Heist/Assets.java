@@ -34,6 +34,11 @@ public class Assets {
 	
 	public static Music catchyMusic;
     public static Sound eatingSound;
+
+    //menu buttons
+    public static Texture highScoreButton;
+    public static Texture instructionsButton;
+    public static Texture startButton;
 	
 	public static void load() {
         foodBanana = new Texture(Gdx.files.internal("graphics/foodBanana.png"));
@@ -64,6 +69,10 @@ public class Assets {
 		catchyMusic.setLooping(true);
 		catchyMusic.play();
 
+        //menu buttons
+        startButton = new Texture(Gdx.files.internal("graphics/startButton.png"));
+        instructionsButton = new Texture(Gdx.files.internal("graphics/instructionsButton.png"));
+        highScoreButton = new Texture(Gdx.files.internal("graphics/highScoreButton.png"));
 
 	}
 

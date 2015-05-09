@@ -16,14 +16,20 @@ public class MainMenuScreen implements Screen {
     final HaroldHeist game;
     OrthographicCamera camera;
     Rectangle soundBounds;
+    Rectangle startGame;
+    Rectangle highScores;
+    Rectangle instructions;
     Vector3 touchPoint;
     private Texture backgroundTexture;
 
     public MainMenuScreen(HaroldHeist game) {
         this.game = game;
 
-        backgroundTexture = new Texture(Gdx.files.internal("graphics/menuScreen.png"));
+        backgroundTexture = new Texture(Gdx.files.internal("graphics/menuScreenForButtons.png"));
         soundBounds = new Rectangle(0, 0, 20, 20);
+        startGame = new Rectangle(200, 145, 140, 70);
+        instructions = new Rectangle(200, 75, 140, 70);
+        highScores = new Rectangle(200, 5, 140, 70);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 560, 320);
 
@@ -46,13 +52,10 @@ public class MainMenuScreen implements Screen {
 
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0, 0, 560, 320);
-        //game.font.draw(game.batch, "Welcome to Harold Heist!!", 190, 200);
-        //game.font.draw(game.batch, "Click anywhere to begin", 190, 150);
         game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 20, 20);
-        //game.batch.draw(startButton);
-        //game.batch.draw(instructionsButton);
-        //game.batch.draw(highScoreButton);
-        //game.batch.draw(exitButton);
+        game.batch.draw(Assets.startButton, 200, 145, 140, 70);
+        game.batch.draw(Assets.instructionsButton, 200, 75, 140, 70);
+        game.batch.draw(Assets.highScoreButton, 200, 5, 140, 70);
         game.batch.end();
 
         update();
@@ -69,15 +72,27 @@ public class MainMenuScreen implements Screen {
                     Assets.catchyMusic.pause();
                 }
             }
-            //if(
 
-            else {
+            if (startGame.contains(touchPoint.x, touchPoint.y)) {
                 game.setScreen(new GameScreen(game));
-                dispose();
+                //dispose();
             }
+            if (instructions.contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new InstructionsScreen(game));
+                //dispose();
+            }
+            if (highScores.contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new HighScoreScreen(game));
+                //dispose();
+            }
+//            else {
+//                game.setScreen(new GameScreen(game));
+//                dispose();
+//            }
 
         }
     }
+
 
     @Override
     public void resize(int width, int height) {
