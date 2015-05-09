@@ -11,7 +11,10 @@
 **Current Bugs**
   1. Food may overlap
   2. Food flashes
-  3. Resizing the game screen distorts the map
+  3. Food may be spawned too close to Protag (the game might begin too soon)
+  4. Resizing the game screen distorts the map
+  5. Game occasionally lags causing protagonist to walk through boundaries
+   
 
 **Credits**
   1. [Tileset](http://untamed.wild-refuge.net/rpgxp.php)
