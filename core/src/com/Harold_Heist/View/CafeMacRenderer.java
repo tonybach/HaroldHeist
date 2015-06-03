@@ -5,6 +5,7 @@ import com.Harold_Heist.Model.CafeMac;
 import com.Harold_Heist.Model.Food;
 import com.Harold_Heist.Model.Protagonist;
 import com.Harold_Heist.Model.Antagonist;
+import com.Harold_Heist.Settings;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 
 public class CafeMacRenderer {
 
-    private static final float CAMERA_WIDTH = 25f;
     public static final int GAMEWIDTH = 704;
     public static final int GAMEHEIGHT = 480;
 
@@ -38,7 +38,6 @@ public class CafeMacRenderer {
     private float screenWidth;
     private float screenHeight;
     private ShapeRenderer debugRenderer;
-    private ShapeRenderer shapeRenderer;
     private int gameScore;
     private String gameScoreName;
     BitmapFont scoreFont;
@@ -126,7 +125,6 @@ public class CafeMacRenderer {
         drawFoods();
         scoreFont.setColor(0, 0, 0, .8f);
         scoreFont.draw(spriteBatch, gameScoreName, 620 / widthRatio, 460 / heightRatio);
-//        scoreFont.draw(spriteBatch, gameScoreName, 710, 460);
 
         spriteBatch.end();
     }
@@ -525,7 +523,7 @@ public class CafeMacRenderer {
         removeThenAddNewFood(foodPosition);
         gameScore++;
         gameScoreName = "SCORE: " + gameScore;
-        Assets.eatingSound.play();
+        if (Settings.soundEnabled) Assets.eatingSound.play();
     }
 
     /**

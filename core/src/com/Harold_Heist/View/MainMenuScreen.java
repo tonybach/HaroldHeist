@@ -46,13 +46,8 @@ public class MainMenuScreen implements Screen {
 
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0, 0, 560, 320);
-        //game.font.draw(game.batch, "Welcome to Harold Heist!!", 190, 200);
-        //game.font.draw(game.batch, "Click anywhere to begin", 190, 150);
         game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 20, 20);
-        //game.batch.draw(startButton);
-        //game.batch.draw(instructionsButton);
-        //game.batch.draw(highScoreButton);
-        //game.batch.draw(exitButton);
+
         game.batch.end();
 
         update();
@@ -69,7 +64,6 @@ public class MainMenuScreen implements Screen {
                     Assets.catchyMusic.pause();
                 }
             }
-            //if(
 
             else {
                 game.setScreen(new GameScreen(game));
