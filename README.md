@@ -19,7 +19,7 @@
 **Credits**
   1. [Tileset](http://untamed.wild-refuge.net/rpgxp.php)
   2. [Music](https://freemusicarchive.org/music/sawsquarenoise/RottenMage_SpaceJacked/)
-  3. [Sound](http://soundbible.com/royalty-free-sounds-1.html)
+  3. Sound: Created using [bxfr] (http://www.bfxr.net/)
   
 
 
