@@ -1,5 +1,6 @@
 package com.Harold_Heist.View;
 
+import com.Harold_Heist.Assets;
 import com.Harold_Heist.HaroldHeist;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -43,11 +44,13 @@ public class GameOverScreen implements Screen {
         
         if (Gdx.input.isTouched()){
         	game.setScreen(new MainMenuScreen(game));
-        	dispose();
+            Assets.blipSound.play();
+            dispose();
         }
 
         if (Gdx.input.isKeyJustPressed(66)) {
             game.setScreen(new GameScreen(game));
+            Assets.blipSound.play();
             dispose();
         }
 	}

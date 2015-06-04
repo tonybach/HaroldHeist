@@ -46,6 +46,7 @@ public class GameScreen implements Screen{
 
     private void update() {
         if (cafeMac.getState() == CafeMac.State.STATE_GAMEOVER) {
+            Assets.bustedSound.play();
             game.setScreen(new GameOverScreen(game, renderer));
         }
         if(renderer.getGameScore() > 0) {

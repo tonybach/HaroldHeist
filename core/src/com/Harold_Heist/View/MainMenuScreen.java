@@ -46,7 +46,7 @@ public class MainMenuScreen implements Screen {
 
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0, 0, 560, 320);
-        game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 20, 20);
+        game.batch.draw(Settings.soundEnabled ? Assets.soundOnIcon : Assets.soundOffIcon, 0, 0, 20, 20);
 
         game.batch.end();
 
@@ -67,12 +67,14 @@ public class MainMenuScreen implements Screen {
 
             else {
                 game.setScreen(new GameScreen(game));
+                Assets.blipSound.play();
                 dispose();
             }
         }
 
         if (Gdx.input.isKeyJustPressed(66)) {
             game.setScreen(new GameScreen(game));
+            Assets.blipSound.play();
             dispose();
         }
     }

@@ -175,6 +175,10 @@ public class CafeMacRenderer {
         float yCoordinate = evilTwinAntag.getPosition().y;
         float antagSize = Antagonist.getSize();
 
+        if (evilTwinAntag.getPosition().y < 480 && evilTwinAntag.getPosition().y > 475) {
+            Assets.evilTwinAppearingSound.play();
+        }
+
         if (evilTwinAntag.getState() == Antagonist.State.FACERIGHT) {
             spriteBatch.draw(Assets.evilTwinRight, xCoordinate, yCoordinate, antagSize, antagSize);
         } else if (evilTwinAntag.getState() == Antagonist.State.FACELEFT) {

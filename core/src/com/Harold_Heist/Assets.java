@@ -11,7 +11,6 @@ public class Assets {
 	public static Texture protagUp;
 	public static Texture protagDown;
 
-
     public static Texture antagRight;
 	public static Texture antagLeft;
 	public static Texture antagUp;
@@ -22,18 +21,20 @@ public class Assets {
     public static Texture evilTwinUp;
     public static Texture evilTwinDown;
 
-
     public static Texture foodBanana;
     public static Texture foodApple;
     public static Texture foodBacon;
     public static Texture foodCake;
 
-
-    public static Texture soundOn;
-	public static Texture soundOff;
+    public static Texture soundOnIcon;
+	public static Texture soundOffIcon;
 	
 	public static Music catchyMusic;
+
+    public static Sound blipSound;
     public static Sound eatingSound;
+    public static Sound bustedSound;
+    public static Sound evilTwinAppearingSound;
 	
 	public static void load() {
         foodBanana = new Texture(Gdx.files.internal("graphics/foodBanana.png"));
@@ -56,14 +57,18 @@ public class Assets {
         evilTwinUp = new Texture(Gdx.files.internal("graphics/ghostAntagUp.png"));
         evilTwinDown = new Texture(Gdx.files.internal("graphics/ghostAntagDown.png"));
 
-		soundOn = new Texture(Gdx.files.internal("graphics/soundOn.png"));
-		soundOff = new Texture(Gdx.files.internal("graphics/soundOff.png"));
-        eatingSound = Gdx.audio.newSound(Gdx.files.internal("music/eatingSound.wav"));
+		soundOnIcon = new Texture(Gdx.files.internal("graphics/soundOn.png"));
+        soundOffIcon = new Texture(Gdx.files.internal("graphics/soundOff.png"));
+
         catchyMusic = Gdx.audio.newMusic(Gdx.files.internal("music/catchyMusic.mp3"));
+
+        blipSound = Gdx.audio.newSound(Gdx.files.internal("music/blipSound.wav"));
+        eatingSound = Gdx.audio.newSound(Gdx.files.internal("music/eatingSound.wav"));
+        bustedSound = Gdx.audio.newSound(Gdx.files.internal("music/bustedSound.wav"));
+        evilTwinAppearingSound = Gdx.audio.newSound(Gdx.files.internal("music/evilTwinAppearingSound.wav"));
 
 		catchyMusic.setLooping(true);
 		catchyMusic.play();
-
 
 	}
 
