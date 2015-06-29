@@ -6,6 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 public class Food {
 
     static final float SIZE = 32;
+    static final float NUM_TYPES = 4;
+    static final float NUM_FOOD_PER_TYPE = 3;
 
     Vector2 position = new Vector2();
     Rectangle bounds = new Rectangle();

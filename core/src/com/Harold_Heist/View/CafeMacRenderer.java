@@ -3,6 +3,7 @@ package com.Harold_Heist.View;
 import com.Harold_Heist.Assets;
 import com.Harold_Heist.Model.CafeMac;
 import com.Harold_Heist.Model.Food;
+import com.Harold_Heist.Model.GameCharacter;
 import com.Harold_Heist.Model.Protagonist;
 import com.Harold_Heist.Model.Antagonist;
 import com.Harold_Heist.Settings;
@@ -82,13 +83,11 @@ public class CafeMacRenderer {
         widthRatio = screenWidth / GAMEWIDTH;
         heightRatio = screenHeight / GAMEHEIGHT;
 
-        //map is small, but the objects are at the right place
-
         this.cam = new OrthographicCamera();
         this.cam.setToOrtho(false, screenWidth, screenHeight);
 
-        this.cam = new OrthographicCamera();
-        this.cam.setToOrtho(false, 704, 480);
+//        this.cam = new OrthographicCamera();
+//        this.cam.setToOrtho(false, 704, 480);
 
         this.cam.update();
         this.debug = debug;
@@ -135,15 +134,15 @@ public class CafeMacRenderer {
     private void drawProtag() {
         float xCoordinate = protag.getPosition().x;
         float yCoordinate = protag.getPosition().y;
-        float protagSize = Protagonist.getSize();
+        float protagSize = protag.getSize();
 
-        if (protag.getState() == Protagonist.State.FACERIGHT) {
+        if (protag.getState() == GameCharacter.State.FACERIGHT) {
             spriteBatch.draw(Assets.protagRight, xCoordinate, yCoordinate, protagSize, protagSize);
-        } else if (protag.getState() == Protagonist.State.FACELEFT) {
+        } else if (protag.getState() == GameCharacter.State.FACELEFT) {
             spriteBatch.draw(Assets.protagLeft, xCoordinate, yCoordinate, protagSize, protagSize);
-        } else if (protag.getState() == Protagonist.State.FACEUP) {
+        } else if (protag.getState() == GameCharacter.State.FACEUP) {
             spriteBatch.draw(Assets.protagUp, xCoordinate, yCoordinate, protagSize, protagSize);
-        } else if (protag.getState() == Protagonist.State.FACEDOWN) {
+        } else if (protag.getState() == GameCharacter.State.FACEDOWN) {
             spriteBatch.draw(Assets.protagDown, xCoordinate, yCoordinate, protagSize, protagSize);
         }
     }
@@ -156,13 +155,13 @@ public class CafeMacRenderer {
         float yCoordinate = antag.getPosition().y;
         float antagSize = Antagonist.getSize();
 
-        if (antag.getState() == Antagonist.State.FACERIGHT) {
+        if (antag.getState() == GameCharacter.State.FACERIGHT) {
             spriteBatch.draw(Assets.antagRight, xCoordinate, yCoordinate, antagSize, antagSize);
-        } else if (antag.getState() == Antagonist.State.FACELEFT) {
+        } else if (antag.getState() == GameCharacter.State.FACELEFT) {
             spriteBatch.draw(Assets.antagLeft, xCoordinate, yCoordinate, antagSize, antagSize);
-        } else if (antag.getState() == Antagonist.State.FACEUP) {
+        } else if (antag.getState() == GameCharacter.State.FACEUP) {
             spriteBatch.draw(Assets.antagUp, xCoordinate, yCoordinate, antagSize, antagSize);
-        } else if (antag.getState() == Antagonist.State.FACEDOWN) {
+        } else if (antag.getState() == GameCharacter.State.FACEDOWN) {
             spriteBatch.draw(Assets.antagDown, xCoordinate, yCoordinate, antagSize, antagSize);
         }
     }
@@ -176,7 +175,7 @@ public class CafeMacRenderer {
         float antagSize = Antagonist.getSize();
 
         if (evilTwinAntag.getPosition().y < 480 && evilTwinAntag.getPosition().y > 475) {
-            Assets.evilTwinAppearingSound.play();
+            if (Settings.soundEnabled) Assets.evilTwinAppearingSound.play();
         }
 
         if (evilTwinAntag.getState() == Antagonist.State.FACERIGHT) {
@@ -260,8 +259,8 @@ public class CafeMacRenderer {
      */
     private void collisionHandler() {
         for (Shape2D shape : collisionShapes) {
-            obstacleCollisionHandler(protag.getPosition(), shape, true);
-            obstacleCollisionHandler(antag.getPosition(), shape, false);
+            obstacleCollisionHandler(protag.getPosition(), shape);
+            obstacleCollisionHandler(antag.getPosition(), shape );
         }
         wallCollisionHandler(protag.getPosition(), true);
         wallCollisionHandler(antag.getPosition(), false);
@@ -276,17 +275,11 @@ public class CafeMacRenderer {
      * Handles collision so that protagonist/antagonist can't walk through tables/food stations
      * @param characterPosition
      * @param shape
-     * @param isProtag
      */
-    private void obstacleCollisionHandler(Vector2 characterPosition, Shape2D shape, boolean isProtag) {
+    private void obstacleCollisionHandler(Vector2 characterPosition, Shape2D shape) {
         float charX = characterPosition.x;
         float charY = characterPosition.y;
-        float charSize;
-        if (isProtag) {
-            charSize = protag.getSize();
-        } else {
-            charSize = antag.getSize();
-        }
+        float charSize = GameCharacter.getSize();
 
         float shapeX;
         float shapeY;

@@ -24,6 +24,7 @@ public class CafeMac {
     Antagonist evilTwin;
     Array<Food> foodArray = new Array<Food>();
 
+
     TiledMap tiledMap = new TmxMapLoader().load("graphics/cafeMacMap.tmx");
 
     MapLayer objectLayer;
@@ -57,13 +58,13 @@ public class CafeMac {
     // --------------------
 
 	public CafeMac(){
-        protag = new Protagonist(new Vector2(50, 50));
-        antag = new Antagonist(new Vector2(1, 1));
-        evilTwin = new EvilTwin(new Vector2(330, 500));
+        protag = new Protagonist(Protagonist.getStartPosition(), Protagonist.SIZE);
+        antag = new Antagonist(Antagonist.getStartPosition(), Antagonist.SIZE);
+        evilTwin = new Antagonist(Antagonist.getEvilTwinStartPosition(), Antagonist.SIZE);
         addCollisionShapes();
 
-        for (int foodIndex = 0; foodIndex < 4; foodIndex++) {
-            for (int i = 0; i < 3; i++) {
+        for (int foodIndex = 0; foodIndex < Food.NUM_TYPES; foodIndex++) {
+            for (int i = 0; i < Food.NUM_FOOD_PER_TYPE; i++) {
                 Vector2 position = getFreePosition();
                 Food food = new Food(position, foodIndex);
                 foodArray.add(food);

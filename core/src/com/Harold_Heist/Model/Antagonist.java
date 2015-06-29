@@ -4,81 +4,27 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class Antagonist extends Rectangle{
+public class Antagonist extends GameCharacter{
 
 	static final float SIZE = 32;
     static final float SPEED = SIZE * 4;
     static final float START_X = 1;
     static final float START_Y = 1;
+    static final float EVIL_TWIN_START_X = 330;
+    static final float EVIL_TWIN_START_Y = 500;
 
-    Vector2 	position = new Vector2();
-	Rectangle 	bounds = new Rectangle();
-	State state = State.FACERIGHT;
 
-    public enum State {FACELEFT, FACERIGHT, FACEUP, FACEDOWN; }
-	
-	public Antagonist(Vector2 position){
-		this.position = position;
-		this.bounds.height = SIZE;
-		this.bounds.width = SIZE;
-	}
-	
-	public Vector2 getPosition(){return position; }
+    public Antagonist(Vector2 position, float size) {super(position, size);}
 
-    public Vector2 getStartPosition(){return new Vector2(START_X, START_Y);}
-	
-	public Rectangle getBounds(){return bounds; }
-	
-	public static float getSpeed(){return SPEED; }
-	
-	public static float getSize(){return SIZE; }
-	
-	public State getState(){return state; }
-	
-	public void setState(State state){this.state = state; }
+    public static Vector2 getStartPosition(){return new Vector2(START_X, START_Y); }
 
-    public void goNorth(){
-        this.setState(Antagonist.State.FACEUP);
-        this.getPosition().y += Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
+    public static Vector2 getEvilTwinStartPosition(){return new Vector2(EVIL_TWIN_START_X, EVIL_TWIN_START_Y); }
 
-    public void goNorthEast(){
-        this.setState(Antagonist.State.FACERIGHT);
-        this.getPosition().x += Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-        this.getPosition().y += Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
+    public static float getSpeed() {return SPEED;}
 
-    public void goEast(){
-        this.setState(Antagonist.State.FACERIGHT);
-        this.getPosition().x += Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
-
-    public void goSouthEast(){
-        this.setState(Antagonist.State.FACERIGHT);
-        this.getPosition().x += Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-        this.getPosition().y -= Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
-
-    public void goSouth(){
-        this.setState(Antagonist.State.FACEDOWN);
-        this.getPosition().y -= Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
-
-    public void goSouthWest(){
-        this.setState(Antagonist.State.FACELEFT);
-        this.getPosition().x -= Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-        this.getPosition().y -= Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
-
-    public void goWest(){
-        this.setState(Antagonist.State.FACELEFT);
-        this.getPosition().x -= Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-    }
-
-    public void goNorthWest(){
-        this.setState(Antagonist.State.FACELEFT);
-        this.getPosition().x -= Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
-        this.getPosition().y += Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
+    public void go(Direction direction) {
+        this.getPosition().x += direction.dx() * Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
+        this.getPosition().y += direction.dy() * Antagonist.getSpeed() * Gdx.graphics.getDeltaTime();
     }
 		
 }

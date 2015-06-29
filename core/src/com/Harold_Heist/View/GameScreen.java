@@ -46,22 +46,24 @@ public class GameScreen implements Screen{
 
     private void update() {
         if (cafeMac.getState() == CafeMac.State.STATE_GAMEOVER) {
-            Assets.bustedSound.play();
+            if (Settings.soundEnabled) {
+                Assets.bustedSound.play();
+            }
             game.setScreen(new GameOverScreen(game, renderer));
         }
         if(renderer.getGameScore() > 0) {
-            moveAntag();
+            moveAntag(antag);
         }
         if(renderer.getGameScore() > 9){
-            moveEvilTwin();
+            moveAntag(evilTwin);
         }
     }
 
 
-    private void moveAntag() {
+    private void moveAntag(Antagonist evilCharacter) {
 
-        double deltaY = protag.getPosition().y - antag.getPosition().y;
-        double deltaX = protag.getPosition().x - antag.getPosition().x;
+        double deltaY = protag.getPosition().y - evilCharacter.getPosition().y;
+        double deltaX = protag.getPosition().x - evilCharacter.getPosition().x;
         double magVec = Math.hypot(deltaX, deltaY);
         double unitCircleX = deltaX / magVec;
         double unitCircleY = deltaY / magVec;
@@ -93,128 +95,69 @@ public class GameScreen implements Screen{
         }
 
         if (max == northDotVector) {
-            antag.goNorth();
+            evilCharacter.setState(GameCharacter.State.FACEUP);
+            evilCharacter.go(GameCharacter.Direction.N);
 
         } else if (max == northEastDotVector) {
-            antag.goNorthEast();
+            evilCharacter.setState(GameCharacter.State.FACERIGHT);
+            evilCharacter.go(GameCharacter.Direction.NE);
 
         } else if (max == eastDotVector) {
-            antag.goEast();
+            evilCharacter.setState(GameCharacter.State.FACERIGHT);
+            evilCharacter.go(GameCharacter.Direction.E);
 
         } else if (max == southEastDotVector) {
-            antag.goSouthEast();
+            evilCharacter.setState(GameCharacter.State.FACERIGHT);
+            evilCharacter.go(GameCharacter.Direction.SE);
 
         } else if (max == southDotVector) {
-            antag.goSouth();
+            evilCharacter.setState(GameCharacter.State.FACEDOWN);
+            evilCharacter.go(GameCharacter.Direction.S);
 
         } else if (max == southWestDotVector) {
-            antag.goSouthWest();
+            evilCharacter.setState(GameCharacter.State.FACELEFT);
+            evilCharacter.go(GameCharacter.Direction.SW);
 
         } else if (max == westDotVector) {
-            antag.goWest();
+            evilCharacter.setState(GameCharacter.State.FACELEFT);
+            evilCharacter.go(GameCharacter.Direction.W);
 
         }
           else if (max == northWestDotVector) {
-            antag.goNorthWest();
+            evilCharacter.setState(GameCharacter.State.FACELEFT);
+            evilCharacter.go(GameCharacter.Direction.NW);
         }
 
     }
-
-    private void moveEvilTwin() {
-
-        double deltaY = protag.getPosition().y - evilTwin.getPosition().y;
-        double deltaX = protag.getPosition().x - evilTwin.getPosition().x;
-        double magVec = Math.hypot(deltaX, deltaY);
-        double unitCircleX = deltaX / magVec;
-        double unitCircleY = deltaY / magVec;
-
-        double northDotVector = unitCircleY;
-        double northEastDotVector = (Math.sqrt(2)/2 * unitCircleX) + (Math.sqrt(2)/2 * unitCircleY);
-        double eastDotVector = unitCircleX;
-        double southEastDotVector = (Math.sqrt(2)/2 * unitCircleX) - (Math.sqrt(2)/2 * unitCircleY);
-        double southDotVector = -unitCircleY;
-        double southWestDotVector = -(Math.sqrt(2)/2 * unitCircleX) - (Math.sqrt(2)/2 * unitCircleY);
-        double westDotVector = -unitCircleX;
-        double northWestDotVector = -(Math.sqrt(2)/2 * unitCircleX) + (Math.sqrt(2)/2 * unitCircleY);
-
-        ArrayList<Double> directionVectors = new ArrayList<Double>();
-        directionVectors.add(northDotVector);
-        directionVectors.add(northEastDotVector);
-        directionVectors.add(eastDotVector);
-        directionVectors.add(southEastDotVector);
-        directionVectors.add(southDotVector);
-        directionVectors.add(southWestDotVector);
-        directionVectors.add(westDotVector);
-        directionVectors.add(northWestDotVector);
-
-        double max = Integer.MIN_VALUE;
-        for (Double directionVector : directionVectors) {
-            if (directionVector > max){
-                max = directionVector;
-            }
-        }
-
-        if (max == northDotVector) {
-            evilTwin.goNorth();
-
-        } else if (max == northEastDotVector) {
-            evilTwin.goNorthEast();
-
-        } else if (max == eastDotVector) {
-            evilTwin.goEast();
-
-        } else if (max == southEastDotVector) {
-            evilTwin.goSouthEast();
-
-        } else if (max == southDotVector) {
-            evilTwin.goSouth();
-
-        } else if (max == southWestDotVector) {
-            evilTwin.goSouthWest();
-
-        } else if (max == westDotVector) {
-            evilTwin.goWest();
-
-        }
-        else if (max == northWestDotVector) {
-            evilTwin.goNorthWest();
-        }
-    }
-
 
     @Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 		renderer.setSize(width, height);
     }
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
 
 	}
 		
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
-		
+
 	}
 	
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+
 	}
 
 }
