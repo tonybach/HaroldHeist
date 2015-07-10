@@ -2,90 +2,58 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Harold Heist by tonybach</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <title>Harold Heist</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-64310162-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Harold Heist</h1>
-      <h2 class="project-tagline">Macalester-based food-collecting game</h2>
-      <a href="https://github.com/tonybach/HaroldHeist" class="btn">View on GitHub</a>
-      <a href="https://tonybach.github.io/playHaroldHeist" class="btn">Play Online!</a>
-      <a href="https://tonybach.github.io" class="btn">Go back to Tony's page</a>
-    </section>
+      <nav class = "nav-primary">
+          <ul>
+              <li><a href="http://tonybach.net">Home</a></li>
+              <li><a target = "_blank" href="https://www.linkedin.com/in/phucbach">LinkedIn</a></li>
+              <li><a target = "_blank" href="http://tonybach.github.io/resume.pdf">Resume</a></li>
+              <li><a target = "_blank" href="https://github.com/tonybach">GitHub</a></li>
+              <li><a href="http://tonybach.github.io/HaroldHeist">Harold Heist</a></li>
+              <li><a href="http://tonybach.github.io/DanglingTraveler">Dangling Traveler</a></li>
 
-    <section class="main-content">
-      <h1>
-<a id="harold_heist" class="anchor" href="#harold_heist" aria-hidden="true"><span class="octicon octicon-link"></span></a>Harold Heist</h1>
+          </ul>
+      </nav>
 
-<h3>
-<a id="what-is-this" class="anchor" href="#what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is this?</h3>
+      <div class = "container">
+        <div class = "row content">
+          <div class="col-md-6 vcenter">
+            <div class="blurb ">
+              <h1>Harold Heist</h1>
+               <p>Produced by team Vitorebl (<a href="https://www.linkedin.com/profile/view?id=228477179&authType=name&authToken=CBGn&trk=prof-proj-cc-name">Victor Bordo</a>, <a href="https://www.linkedin.com/in/phucbach">Tony Bach</a>, <a href="https://www.linkedin.com/profile/view?id=314354475&authType=name&authToken=TTY2&trk=prof-proj-cc-name">Reena Thaveethu</a>, and <a href="https://www.linkedin.com/profile/view?id=392340048&authType=name&authToken=OfL2&trk=prof-proj-cc-name">Blaise Yokoyama</a>) over one semester for our Software Development class, Harold Heist is a little game that reminds students at Macalester College of their favorite college memory. Even if you are not a student at Macalester, we hope this will still bring a smile to your face. So click on the picture and have some fun!</p>
+            </div>            
+          </div><!--
+          --><div class="col-md-6 vcenter">
+            <a target = "_blank" href = "http://tonybach.github.io/playHaroldHeist"><image class = "appPic" src = "public/img/HaroldHeist.png"></a>
+          </div>
+        </div>
+      </div>
 
-<p>Produced by team Vitorebl (<a href="https://github.com/vbordo">Victor Bordo</a>, <a href="https://github.com/tonybach">Tony Bach</a>, <a href="https://github.com/Lazareena">Reena Thaveethu</a>, and <a href="https://github.com/wyokoyam">Blaise Yokoyama</a>) over one semester for our Software Development class, Harold Heist is a little game that reminds students at Macalester College of their favorite college memory. Even if you are not a student at Macalester, we hope this will still bring a smile to your face :)</p>
-
-<h3>
-<a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to play</h3>
-
-<p>You can either:</p>
-
-<p><em>Play the game online <a href="http://tonybach.github.io/playHaroldHeist"><strong>here</strong></a></em>.</p>
-
-<p>or</p>
-
-<p><em>Download the code and play the game locally</em>: To do this, just follow these steps:</p>
-
-<ol>
-<li>You will need to install 
-
-<ul>
-<li>
-<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit 7+ (JDK)</a> (6 will not work)</li>
-<li><a href="https://developer.android.com/sdk/index.html#">Android Studio</a></li>
-<li>
-<a href="http://developer.android.com/sdk/installing/index.html">Android SDK</a> you only need the SDK, not the ADT bundle, which includes Eclipse. Install the latest stable platform via the SDK Manager. You also have to create an environment                variable called ANDROID_HOME, which points at your Android SDK installation directory!</li>
-</ul>
-</li>
-<li>Download the project as a <a href="https://github.com/tonybach/Harold_Heist/archive/enter_change_screens.zip">zip file</a>.</li>
-<li>Unzip the zip file.</li>
-<li>Go to Android Studio and import the unzipped folder. </li>
-<li>Inside your newly created project directory, navigate to <em>desktop/com.Harold_Heist.desktop</em>, right click on <em>DesktopLauncher</em>, and choose <em>Select 'DesktopLaunche....main()'</em>.</li>
-<li>From the toolbar, go to <em>Run/Edit Configurations</em>. Set the <em>Working directory</em> to <em>yourFolder/Harold_Heist/android/assets</em>, then click Ok.</li>
-<li>You're all set! Select the green triangle near the top to run the game.</li>
-</ol>
-
-<h3>
-<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h3>
-
-<ol>
-<li><a href="http://untamed.wild-refuge.net/rpgxp.php">Tileset</a></li>
-<li><a href="https://freemusicarchive.org/music/sawsquarenoise/RottenMage_SpaceJacked/">Music</a></li>
-<li>Sound: Created using <a href="http://www.bfxr.net/">bxfr</a>
-</li>
-</ol>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/tonybach/Harold_Heist">Harold Heist</a> is maintained by <a href="https://github.com/tonybach">tonybach</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      <footer>
+          <ul>
+              <li><a href="mailto:pbach@macalester.edu">email</a></li>
+        </ul>
       </footer>
-
-    </section>
-
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-64310162-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
   </body>
 </html>
 
