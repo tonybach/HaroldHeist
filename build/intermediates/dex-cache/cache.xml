@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/tonybach/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.5.3/3b8f2a7e697b097735ec8fd2b9d576d0959cb7c9/gdx-1.5.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3b8f2a7e697b097735ec8fd2b9d576d0959cb7c9">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/gdx-1.5.3-c0f6c7852ec3f3aaa93ae8c25616b0b32e4296d6.jar" />
+    </item>
+    <item
+        jar="/Users/tonybach/Coding/Harold_Heist/core/build/libs/core-1.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3c5be11f3fbdaa225c760c68997bc11730d1e078">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/core-1.0-329adbde112dbda57b96e7055575e83e2a8293d4.jar" />
+    </item>
+    <item
+        jar="/Users/tonybach/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.5.3/52bc9ff881a6eb1731eb2f54b5016425cae05024/gdx-box2d-1.5.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="52bc9ff881a6eb1731eb2f54b5016425cae05024">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/gdx-box2d-1.5.3-180c13b60899ff6f13eacde4a265c849ac79803a.jar" />
+    </item>
+    <item
+        jar="/Users/tonybach/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-controllers-android/1.5.3/8811d55d9486e94b6061b90b9fe07458c3c22450/gdx-controllers-android-1.5.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8811d55d9486e94b6061b90b9fe07458c3c22450">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/gdx-controllers-android-1.5.3-6061ef42b463028bde0a343bbcfe8f742b31ce83.jar" />
+    </item>
+    <item
+        jar="/Users/tonybach/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-controllers/1.5.3/a21503c7167d7b0a31daf3166ffae84c25d3644d/gdx-controllers-1.5.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="a21503c7167d7b0a31daf3166ffae84c25d3644d">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/gdx-controllers-1.5.3-7522ef79af70835793e6db88e844ba8487a51639.jar" />
+    </item>
+    <item
+        jar="/Users/tonybach/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.5.3/903703e4eca4d27092cf61412b7a583aa26d14ad/gdx-backend-android-1.5.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="903703e4eca4d27092cf61412b7a583aa26d14ad">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/gdx-backend-android-1.5.3-ebd9a11bb8ce2826828817bac64d7f9e47eae10f.jar" />
+    </item>
+    <item
+        jar="/Users/tonybach/.gradle/caches/modules-2/files-2.1/com.github.xaguzman/pathfinding/0.2.5/6dafb775ea92cd6c524e41ceeb0e91c5a54afa3/pathfinding-0.2.5.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="06dafb775ea92cd6c524e41ceeb0e91c5a54afa3">
+        <dex dex="/Users/tonybach/Coding/Harold_Heist/android/build/intermediates/pre-dexed/debug/pathfinding-0.2.5-f344088eeb492be15480ea672cb03d77ff7e1455.jar" />
+    </item>
+
+</items>
